@@ -12,6 +12,9 @@ TIMESRAN: int = 10
 
 i = 0
 
+"""
+
+"""
 for i in range(TIMESRAN):
     quidditchMatch.fly()
 
