@@ -55,6 +55,6 @@ def animate_frame(i):
 animate = FuncAnimation(plt.gcf(), animate_frame,
                     interval=1,
                     frames=len(quidditchMatch.xArr),
-                    repeat=True)
+                    repeat=False)
 
 plt.show()
