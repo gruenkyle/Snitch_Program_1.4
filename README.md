@@ -9,15 +9,14 @@ Before we could get into the mechanical engineering side of the project
 I wanted to make sure we could even simulate a possible version of the 
 project.
 
-Version 1.0 ->
+Version 1.2 ->
 
 - Functional Snitch Class 
     - Methods Written and Commented 
 - Functional Main Class
-    - Methods Written
+    - Methods Written and Commented 
     
 - Updatable csv file 
-
 - Fully Functional 3D Graph Display of Position 
 
 
