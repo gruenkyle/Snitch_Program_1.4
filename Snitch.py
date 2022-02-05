@@ -21,10 +21,10 @@ class Snitch():
     :param newZ: Starting Z location 
     """
 
-    def __init__(self, newX, newY, newZ):
-        self.x = newX
-        self.y = newY
-        self.z = newZ
+    def __init__(self, xLocation, yLocation, zLocation):
+        self.x = xLocation
+        self.y = yLocation
+        self.z = zLocation
 
     """
     Updates the X location with goal to be reached 
@@ -33,7 +33,6 @@ class Snitch():
 
     :param newLocation: Goal X to be reached 
     """
-
     def updatedPosX(self, newLocation):
         if (self.x < newLocation):
             self.x += 1
