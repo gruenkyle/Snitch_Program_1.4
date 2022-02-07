@@ -1,4 +1,4 @@
-# Snitch_Program_1.0
+# Snitch_Program_1.2
 Golden Snitch Program
 
 This is a passion project program. It started out as an idea to create a 
