@@ -17,7 +17,7 @@ which then will be used to display positional data within the
 """
 goldenSnitch = Snitch.Snitch(0, 0, 50)
 
-XBOUND, YBOUND, ZBOUND = 1000, 1000, 500
+XBOUND, YBOUND, ZBOUND = 500, 500, 200
 quidditchMatch = Snitch.Field(goldenSnitch,
                               XBOUND, YBOUND, ZBOUND)
 TIMESRAN: int = 10
@@ -62,8 +62,14 @@ are also set as well by using the bounds instantiated
 at the start of the program. 
 """
 fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.set(xlim=(0, XBOUND), ylim=(0, YBOUND), zlim=(0, ZBOUND))
+main3DAxis = fig.add_subplot(111, projection='3d')
+main3DAxis.set(xlim=(0, XBOUND), ylim=(0, YBOUND), zlim=(0, ZBOUND))
+
+fig.suptitle('Golden Snitch Position in Field',
+             fontsize=14, fontweight='bold')
+main3DAxis.set_xlabel('X_Position')
+main3DAxis.set_ylabel('Y_Position')
+main3DAxis.set_zlabel('Z_Position')
 
 """
 After the data has been set in the csv file,
@@ -83,10 +89,15 @@ then it plots the [:index] position of each array
 :param index: Index iteration being taken from the array 
 """
 def animate_frame(index):
-    ax.clear()
+    main3DAxis.clear()
 
-    ax.plot3D(x[:index], y[:index], z[:index])
-    ax.set(xlim=(0, XBOUND), ylim=(0, YBOUND), zlim=(0, ZBOUND))
+    main3DAxis.plot3D(x[:index], y[:index], z[:index],
+              color ='blue', linewidth=2)
+    main3DAxis.set(xlim=(0, XBOUND), ylim=(0, YBOUND),
+           zlim =(0, ZBOUND))
+    main3DAxis.text(0, 0, ZBOUND, (x[index], y[index], z[index]),
+                    bbox={'facecolor': 'red', 'alpha': 0.5,
+                          'pad': 10})
 
 """
 Method animate() -> Uses the matplotlib function FuncAnimation() 
@@ -100,7 +111,7 @@ frames -> Total frames that will be ran through
 repeat -> T/F if simulation stops at last point or restarts at last point 
 """
 animate = FuncAnimation(plt.gcf(), animate_frame,
-                    interval=1,
+                    interval=100,
                     frames=len(quidditchMatch.xArr),
                     repeat=False)
 
